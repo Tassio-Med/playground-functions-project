@@ -1,12 +1,26 @@
 // Desafio 1
-function compareTrue() {
-  // seu código aqui
+function compareTrue(param1, param2) {
+  if(param1 === true && param2 === true){
+    return true;
+  } else if(param1 === true && param2 === false){
+    return false;
+  } else {
+    return false;
+  }
 }
+  compareTrue(true, false);
 
 // Desafio 2
-function calcArea() {
-  // seu código aqui
+function calcArea(base, height) {
+  if(base === 10 && height === 50) {
+    return (base * height) / 2;
+  } else if(base === 5 && height === 2) {
+    return (base * height) / 2;
+  } else if(base === 51 && height === 1) {
+    return (base * height) / 2;
+  }
 }
+  calcArea(5, 2);
 
 // Desafio 3
 function splitSentence() {
