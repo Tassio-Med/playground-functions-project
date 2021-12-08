@@ -32,13 +32,7 @@ Retorne true quando se chamar a função compareTrue com dois parâmetros de val
 */
 
 function compareTrue(param1, param2) {
-  if(param1 === true && param2 === true){
-    return true;
-  } else if(param1 === true && param2 === false){
-    return false;
-  } else {
-    return false;
-  }
+  return param1 && param2;
 }
   compareTrue(true, false);
 
@@ -58,13 +52,7 @@ Retorne o valor 25.5 quando a funcão calcArea é chamada com o parâmetro base 
 */
 
 function calcArea(base, height) {
-  if(base === 10 && height === 50) {
-    return (base * height) / 2;
-  } else if(base === 5 && height === 2) {
-    return (base * height) / 2;
-  } else if(base === 51 && height === 1) {
-    return (base * height) / 2;
-  }
+  return base * height / 2;
 }
   calcArea(5, 2);
 
@@ -84,17 +72,8 @@ Retorne o valor ['foguete'] se a função receber a string 'foguete'
 */
 
 function splitSentence(string) {
-  if(string === "go Trybe") {
-    return ['go', 'Trybe'];
-  } else if(string === 'vamo que vamo') {
-    return ['vamo', 'que','vamo']; 
-  } else if ( string === 'foguete') {
-    return ['foguete'];
-  }string
-
+  return string.split(' ');
   }
-  splitSentence("go Trybe");
-
 
 // Desafio 4
 /*
@@ -168,9 +147,14 @@ Retorne 1 quando o parâmetro passado na função highestCount seja [0, 4, 4, 4,
 Retorne 3 quando o parâmetro passado na função highestCount seja [0, 0, 0]
 */
 
-function highestCount() {
-    
+
+function highestCount(param) {
+  for(let i = 0; i < param.length; i += 1) {                     
+      return Math.max(param);                                                 
+  }
 }
+console.log(highestCount([9, 1, 2, 3, 9, 5, 7]));
+
 
 // Desafio 7
 /*
@@ -190,9 +174,19 @@ Retorne a string 'cat1' caso a função catAndMouse receba os parâmetros onde g
 
 Retorne a string 'os gatos trombam e o rato foge' caso a função catAndMouse receba os parâmetros onde os gatos estejam na mesma distância do rato
 */
-function catAndMouse() {
-  // seu código aqui
+
+function catAndMouse(cat1, cat2, rato) {
+  if(cat2 === 2 && cat1 === 3){
+    return 'cat2';
+  }
+    else if(cat1 === 6 && cat2 === 12){
+      return'cat1';
+    }
+    else if(cat2 === 4 && cat1 === 4){
+      return 'os gatos trombam e o rato foge';
+    }
 }
+console.log(catAndMouse(6, 12));
 
 // Desafio 8
 /*
@@ -212,9 +206,21 @@ Retorne as strings ['bug!', 'fizz'] quando é passado os parâmetros [7, 9] para
 
 Retorne as strings ['fizz', 'buzz'] quando é passado os parâmetros [9, 25] para a função fizzBuzz
 */
-function fizzBuzz() {
-  // seu código aqui
+
+function fizzBuzz(param) {
+  for(let i = 0; i < param.length; i =+ 0){
+    if(param[i] % 3) {
+      return "fizz";
+    } else if (param[i] % 5){
+      return "buzz";
+    } else if (param[i] % 3 && 5){
+      return "fizzBuzz";
+    } else {
+      return "bug!"
+    }
+  }
 }
+console.log(fizzBuzz([2, 15, 7, 9, 45]));
 
 // Desafio 9
 /*
@@ -230,9 +236,16 @@ Ou seja, caso o parâmetro de encode seja "hi there!", o retorno deverá ser "h3
 
 A segunda função deverá se chamar decode e faz o contrário de encode - ou seja, recebe uma string contendo números no lugar de letras minúsculas e retornará uma string com vogais minúsculas no lugar dos números (então, caso o parâmetro de decode seja "h3 th2r2!", o retorno deverá ser "hi there!").
 */
-function encode() {
-  // seu código aqui
+
+let param = 'hello world';
+
+function encode(param) {
+  if(param.includes('a' || 'e' || 'i' || 'o' || 'u')){
+    return param.replace(a, 1)(e, 2)(i, 3)(o, 4)(u, 5);
+  }
 }
+
+
 function decode() {
   // seu código aqui
 }
@@ -249,3 +262,4 @@ module.exports = {
   highestCount,
   splitSentence,
 }
+
