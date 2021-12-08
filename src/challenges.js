@@ -168,15 +168,20 @@ Retorne a string 'os gatos trombam e o rato foge' caso a função catAndMouse re
 */
 
 function catAndMouse(mouse, cat1, cat2) {
-  let disCat1 = distancia(cat1, mouse);
-  let disCat2 = distancia(cat2, mouse);
-
+let disCat1 = cat1 - mouse;
+let disCat2 = cat2 - mouse;
+  if(disCat1 < 0) {
+    disCat1 = disCat1 * -1;
+  }
+  if(disCat2 < 0){
+    disCat2 = disCat2 * -1;
+  }
   if (disCat1 < disCat2){
     return 'cat1';
   }else if (disCat2 < disCat1){
-    return 'cat 2';
-  }else {
-    return 'os gatos trombam';
+    return 'cat2'
+  } else {
+    return 'os gatos trombam e o rato foge';
   }
 }
 // Desafio 8
