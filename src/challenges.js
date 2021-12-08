@@ -34,7 +34,7 @@ Retorne true quando se chamar a função compareTrue com dois parâmetros de val
 function compareTrue(param1, param2) {
   return param1 && param2;
 }
-  compareTrue(true, false);
+
 
 // Desafio 2
 /*
@@ -54,7 +54,7 @@ Retorne o valor 25.5 quando a funcão calcArea é chamada com o parâmetro base 
 function calcArea(base, height) {
   return base * height / 2;
 }
-  calcArea(5, 2);
+
 
 // Desafio 3
 /*
@@ -73,7 +73,7 @@ Retorne o valor ['foguete'] se a função receber a string 'foguete'
 
 function splitSentence(string) {
   return string.split(' ');
-  }
+}
 
 // Desafio 4
 /*
@@ -91,16 +91,8 @@ Retorne 'captain, captain' quando o parâmetro passado na funcão concatName sej
 */
 
 function concatName (array) {
-  let string = '';
-  if(array === ['Lucas', 'Cassiano', 'Ferraz', 'Paolillo']) {
-      return string = array[3] + ', ' + array[0];
-  } else if(array === ['foguete', 'não', 'tem', 'ré']) {
-      return string = array[3] + ', '  + array[0];
-  } else if(array === ['captain', 'my', 'captain']) {
-      return string = array[2] + ', ' + array[0];
-  }
+ return array[array.length -1] + ', ' + array[0];
 }
-  console.log(concatName(['Lucas', 'Cassiano', 'Ferraz', 'Paolillo']));
 
 // Desafio 5
 /*
@@ -118,17 +110,9 @@ Retorne 0 pontos quando o time tenha 0 vitórias e 0 empates
 */
 
 function footballPoints(wins, ties) {
-
-  if (wins === 14 && ties === 8){
-    return (wins * 3) + (ties * 1);
-  } else if(wins === 1 && ties === 2){
-    return (wins * 3) + (ties * 1);
-  } else {
-    return 0;
-  }
+  return (wins * 3) + (ties * 1);
 }
 
-console.log(footballPoints(14, 8));
 
 // Desafio 6
 /*
@@ -147,13 +131,21 @@ Retorne 1 quando o parâmetro passado na função highestCount seja [0, 4, 4, 4,
 Retorne 3 quando o parâmetro passado na função highestCount seja [0, 0, 0]
 */
 
-
 function highestCount(param) {
-  for(let i = 0; i < param.length; i += 1) {                     
-      return Math.max(param);                                                 
+  let maior = param[0];   //inicia no primeiro elemento independente se é negativo ou não;
+  for(let i = 0; i < param.length; i += 1) {  
+    if (param[i] > maior){
+      maior = param[i];
+    }              
+  } 
+  let vezes = 0;
+  for(let i = 0; i <param.length; i += 1) {
+    if(param[i] === maior) {
+      vezes += 1;
+    }
   }
+  return vezes;
 }
-console.log(highestCount([9, 1, 2, 3, 9, 5, 7]));
 
 
 // Desafio 7
@@ -175,19 +167,18 @@ Retorne a string 'cat1' caso a função catAndMouse receba os parâmetros onde g
 Retorne a string 'os gatos trombam e o rato foge' caso a função catAndMouse receba os parâmetros onde os gatos estejam na mesma distância do rato
 */
 
-function catAndMouse(cat1, cat2, rato) {
-  if(cat2 === 2 && cat1 === 3){
-    return 'cat2';
-  }
-    else if(cat1 === 6 && cat2 === 12){
-      return'cat1';
-    }
-    else if(cat2 === 4 && cat1 === 4){
-      return 'os gatos trombam e o rato foge';
-    }
-}
-console.log(catAndMouse(6, 12));
+function catAndMouse(mouse, cat1, cat2) {
+  let disCat1 = distancia(cat1, mouse);
+  let disCat2 = distancia(cat2, mouse);
 
+  if (disCat1 < disCat2){
+    return 'cat1';
+  }else if (disCat2 < disCat1){
+    return 'cat 2';
+  }else {
+    return 'os gatos trombam';
+  }
+}
 // Desafio 8
 /*
 Crie uma função chamada fizzBuzz que receba uma array de números e retorne uma array da seguinte forma:
@@ -207,20 +198,24 @@ Retorne as strings ['bug!', 'fizz'] quando é passado os parâmetros [7, 9] para
 Retorne as strings ['fizz', 'buzz'] quando é passado os parâmetros [9, 25] para a função fizzBuzz
 */
 
-function fizzBuzz(param) {
-  for(let i = 0; i < param.length; i =+ 0){
-    if(param[i] % 3) {
-      return "fizz";
-    } else if (param[i] % 5){
-      return "buzz";
-    } else if (param[i] % 3 && 5){
-      return "fizzBuzz";
-    } else {
-      return "bug!"
+function fizzBuzz(nums) {
+  let result = [];
+  
+  for (const i in nums){
+    let ehDivisivelPor3 = nums[i] % 3 === 0;
+    let ehDivisivelPor5 = nums[i] % 5 === 0;
+    if(ehDivisivelPor3 && ehDivisivelPor5){
+      result[i] = 'fizzBuzz';
+    }else if ( ehDivisivelPor3 ){
+      result[i] = 'fizz';
+    }else if( ehDivisivelPor5 ){
+      result[i] = 'buzz';
+    }else{
+      result[i] = 'bug!';
     }
   }
+  return result;
 }
-console.log(fizzBuzz([2, 15, 7, 9, 45]));
 
 // Desafio 9
 /*
