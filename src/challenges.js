@@ -237,14 +237,11 @@ Ou seja, caso o parâmetro de encode seja "hi there!", o retorno deverá ser "h3
 A segunda função deverá se chamar decode e faz o contrário de encode - ou seja, recebe uma string contendo números no lugar de letras minúsculas e retornará uma string com vogais minúsculas no lugar dos números (então, caso o parâmetro de decode seja "h3 th2r2!", o retorno deverá ser "hi there!").
 */
 
-let param = 'hello world';
-
 function encode(param) {
-  if(param.includes('a' || 'e' || 'i' || 'o' || 'u')){
-    return param.replace(a, 1)(e, 2)(i, 3)(o, 4)(u, 5);
-  }
+  let param = 
+  let newparam = param.replace(/a/g, '1');
 }
-
+return newparam;
 
 function decode() {
   // seu código aqui
